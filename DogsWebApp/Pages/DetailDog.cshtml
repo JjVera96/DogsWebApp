@@ -1,0 +1,96 @@
+﻿@page
+@model DogsWebApp.Pages.DetailDogModel
+@{
+    ViewData["Title"] = "Dog detail";
+}
+
+<div class="text-center">
+    <h1>@Model.Dog.Name</h1>
+    <div class="row">
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Name
+                </div>
+                <div class="card-body">@Model.Dog.Name</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    UID
+                </div>
+                <div class="card-body">@Model.Dog.UID</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Breed
+                </div>
+                <div class="card-body">@Model.Dog.Breed</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Age
+                </div>
+                <div class="card-body">@Model.Dog.Age</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Gender
+                </div>
+                <div class="card-body">@Model.Dog.Gender</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Color
+                </div>
+                <div class="card-body">@Model.Dog.Color</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Color
+                </div>
+                <div class="card-body">@Model.Dog.Color</div>
+            </div>
+        </div>
+        <div class="col-3 p-2">
+            <div class="card">
+                <div class="card-header">
+                    Size
+                </div>
+                <div class="card-body">@Model.Dog.Size</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Vaccinated
+                </div>
+                <div class="card-body">@Model.Dog.Vaccinated</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-2">
+                <div class="card-header">
+                    Adopted
+                </div>
+                <div class="card-body">@Model.Dog.Adopted</div>
+            </div>
+        </div>
+        <div class="col-3 align-content-center" style="align-self: center">
+            <a class="btn btn-info" asp-page="CreateOrEditDog" asp-route-id="@Model.Dog.Id">Edit</a>
+            <a class="btn btn-danger" asp-page="DeleteDog" asp-route-id="@Model.Dog.Id">Delete</a>
+            <a class="btn btn-success" asp-page="Index">Go back</a>
+        </div>
+    </div>
+</div>

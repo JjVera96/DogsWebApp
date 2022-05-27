@@ -1,0 +1,107 @@
+﻿@page
+@model DogsWebApp.Pages.EditDogModel
+@{
+
+    ViewData["Title"] = @Model.Title;
+}
+
+<div class="text-center">
+    <h1>@Model.Dog.Name</h1>
+    <div class="row">
+        <form method="post">
+            <input type="hidden"  asp-for="Dog.Id"  value="@Model.Dog.Id">
+            <span class="text-danger" asp-validation-for="Dog.Id"></span>
+            <input type="hidden"  asp-for="Dog.UID"  value="@Model.Dog.UID">
+            <span class="text-danger" asp-validation-for="Dog.UID"></span>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Name"></label>
+                        <input type="text" class="form-control" asp-for="Dog.Name" value="@Model.Dog.Name"/>
+                        <span class="text-danger" asp-validation-for="Dog.Name"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Age"></label>
+                        <input type="number" class="form-control" asp-for="Dog.Age" value="@Model.Dog.Age"/>
+                        <span class="text-danger" asp-validation-for="Dog.Age"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Breed"></label>
+                        <input type="text" class="form-control" asp-for="Dog.Breed" value="@Model.Dog.Breed"/>
+                        <span class="text-danger" asp-validation-for="Dog.Breed"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Color"></label>
+                        <input type="text" class="form-control" asp-for="Dog.Color" value="@Model.Dog.Color"/>
+                        <span class="text-danger" asp-validation-for="Dog.Color"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Gender"></label>
+                        <span class="text-danger" asp-validation-for="Dog.Gender"></span>
+                        <select class="form-select" asp-for="Dog.Gender">
+                            <option selected>Open this select menu</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Dog.Size"></label>
+                        <span class="text-danger" asp-validation-for="Dog.Size"></span>
+                        <select class="form-select" asp-for="Dog.Size">
+                            <option selected>Open this select menu</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3 align-content-center" style="align-self: center">
+                    <div class="form-group">
+                        <div class="form-check">
+                            @if(@Model.Dog.Vaccinated)
+                            {
+                                <input class="form-check-input" type="checkbox" asp-for="Dog.Vaccinated" checked>
+                            }
+                            else
+                            {
+                                <input class="form-check-input" type="checkbox" asp-for="Dog.Vaccinated">
+                            }
+                            <label class="form-check-label" asp-for="Dog.Vaccinated"></label>
+                            <span class="text-danger" asp-validation-for="Dog.Vaccinated"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            @if(@Model.Dog.Adopted)
+                            {
+                                <input class="form-check-input" type="checkbox" asp-for="Dog.Adopted" checked>
+                            }
+                            else
+                            {
+                                <input class="form-check-input" type="checkbox" asp-for="Dog.Adopted">
+                            }
+                            <label class="form-check-label" asp-for="Dog.Adopted"></label>
+                            <span class="text-danger" asp-validation-for="Dog.Adopted"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-3 align-content-center" style="align-self: center">
+                    <button type="submit" class="btn btn-info">Update</button>
+                    <a class="btn btn-danger" asp-page="DetailDog" asp-route-id="@Model.Dog.Id">Go back</a>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+</div>

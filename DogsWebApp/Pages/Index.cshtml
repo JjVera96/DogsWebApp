@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">App to list dogs</h1>
+    <p>This is an app to practice ASP.NET with a list of dogs</p>
+    <form method="get">
+        <div class="from-group">
+            <div class="input-group">
+                <input type="text" class="form-control" asp-for="Search"/>
+                <button type="submit" class="btn btn-light">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">UID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Breed</th>
+                <th scope="col">Age</th>
+                <th scope="col">URL</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dog in @Model.DogList)
+            {
+                <tr>
+                    <td>@dog.Id</td>
+                    <td>@dog.UID</td>
+                    <td>@dog.Name</td>
+                    <td>@dog.Breed</td>
+                    <td>@dog.Age</td>
+                    <td><a asp-page="DetailDog" asp-route-id="@dog.Id">Go</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-primary" asp-page="CreateOrEditDog">New</a>
+    </div>
+</div>
